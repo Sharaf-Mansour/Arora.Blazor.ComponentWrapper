@@ -1,20 +1,37 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
-
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+		<TargetFrameworks>net7;netstandard2.1;net6</TargetFrameworks>
+    		<LangVersion>Preview</LangVersion>
+		<PackageId>Arora..Blazor.ComponentWrapper</PackageId>
+		<Authors>Sharaf Mansour</Authors>
+		<Company>Arora</Company>
+		<Product>Blazor.ComponentWrapper</Product>
+		<Description>A Blazor Library that renders Component Wrappers</Description>
+		<PackageProjectUrl>https://github.com/Sharaf-Mansour/Arora.Blazor.ComponentWrapper</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Sharaf-Mansour/Arora.Blazor.ComponentWrapper</RepositoryUrl>
+		<PackageTags>Component,Wrappers,Blazor,Tab,Switch,Render</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Version>1.0.0</Version>
+		<FileVersion>1.0.0</FileVersion>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+		<SignAssembly>False</SignAssembly>
+		<RepositoryType>GitHub</RepositoryType>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Arora.Blazor.ComponentWrapper</Title>
   </PropertyGroup>
-
-
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
-
+	<ItemGroup>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
   </ItemGroup>
-
 </Project>
