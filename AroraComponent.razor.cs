@@ -12,7 +12,7 @@ public partial class AroraComponent
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             foreach (var assembly in assemblies)
             {
-                var classType = assembly.GetTypes().FirstOrDefault(t => t.FullName!.ToLower().Contains(ElementName.ToLower()));
+                var classType = assembly.GetTypes().FirstOrDefault(t => t.FullName!.ToLower().Equals(ElementName.ToLower()));
                 if (classType is not null)
                 {
                     builder.OpenComponent(0, classType);
