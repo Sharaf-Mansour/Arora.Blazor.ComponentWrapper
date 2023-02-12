@@ -3,23 +3,14 @@ namespace Arora.Blazor.ComponentWrapper;
 public partial class AroraComponent
 {
     [Parameter]
-    public required string ElementName { get; set; }
-    RenderFragment? RenderChild;
+    public required Type ElementType { get; set; }
+    private RenderFragment? RenderChild;
     protected override void OnInitialized()
     {
-        RenderChild = new(builder =>
+        RenderChild = (builder =>
         {
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            foreach (var assembly in assemblies)
-            {
-                var classType = assembly.GetTypes().FirstOrDefault(t => t.FullName!.ToLower().Equals(ElementName.ToLower()));
-                if (classType is not null)
-                {
-                    builder.OpenComponent(0, classType);
-                    builder.CloseComponent();
-                    return;
-                }
-            }
+            builder.OpenComponent(0, ElementType);
+            builder.CloseComponent();
         });
     }
 }
